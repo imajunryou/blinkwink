@@ -1,0 +1,131 @@
+Notes for blinkwink
+
+File structure:
+
+site - Holds everything for the site
+  static - Holds static content
+    css - Holds static CSS
+    img - Holds static images
+    js - Holds static JS
+  templates - Holds the page templates
+  blog.py - Flask app controller
+  sql.py - Sets up the initial database
+  blog.db - The database
+
+
+
+Configuration
+Say you have the main flask app as:
+  app = Flask(__name__)
+
+Say you want to configure it with the name of a database.
+
+app.config.from_object(__name__)
+
+This will search for any capitalized variables and add them to the config
+
+DATABASE = "name_of_db.db"
+
+We can then use that elsewhere:
+
+app.config["DATABASE"] => "name_of_db.db"
+
+
+
+Storing credentials in the code itself is bad
+Having an external config that isn't uploaded with the repo and then reading that in is better
+Having a dummy config that does get sent to the repo is best (can use it in the future to rebuild if need be)
+See https://stackoverflow.com/questions/43565371/would-posting-my-code-to-github-affect-the-security-of-my-application/43565435
+
+
+
+The use of Flask's g object is useful for messing with database connections
+g.db = connect_db() # connect_db() sets up a db connection elsewhere
+g.db.execute
+or g.db.close()
+g is wiped clean after each request.
+
+
+
+
+
+Portfolio
+    The site itself
+    Other specific Github projects
+        Simple graph navigator
+            Add/remove nodes
+            Find paths between nodes
+            Directional/non-directional
+            Cyclic/Acyclic
+            GUI-based?
+            Web based?
+Character sheet generator/manager
+    World of Darkness
+    Planet Mercenary
+    GURPS
+    Eclipse Phase
+    Wayward/Dungeon World
+Bookmark manager
+    Broadcast/Public/Private distinction
+        Default is private
+        Simple switch to toggle between private and public
+        Separate switch to toggle between public and broadcast
+        Broadcast
+            Tone is a nice blue
+            Links are available as "related" to other people who are viewing links
+            Browsing links in general will list broadcast links only
+        Public
+            Tone is a mid-to-dark green
+            Links are viewable when looking at a specific person who you're not logged in as
+            Links do not show up in general browsing
+        Private
+            Tone is a dark orange
+            Links are only visible to the owner
+            Links do not show up in general browsing or when looking at a person who you're not logged in as
+    Detect duplicates
+        Two different people can have the same link and it is not a duplicate
+        One person with the same link twice will result in both links being flagged as possible duplication
+        Can prune off ends of URLS (all the GET stuff, ?foo=bar things) to broaden the definition a bit
+        Can limit things to exact URL copies only to restrict the definition a bit
+            This is the default detection level
+        Allows opening of links directly to other tabs in order to check if they are or are not duplicates
+        Non-duplicate flag
+            Say three links are detected as duplicated
+            Say two of them are the same page, but the third is different
+            You can select the third and mark is as a non-duplicate
+            This will explicitly add the other two pages to a list of non-duplicate links
+            The third link is no longer flagged as a duplicate of the first two
+            The first two remain flagged as duplicates of eachother
+    Detect children pages
+        Two links that start with the same URL up to the TLD are detected as related
+        If they diverge at the same point, they are siblings
+        If one is a subset of the other, it is a child
+    Descriptions
+        Short descriptions, one or two sentences only.
+    Tags
+        Alphanumerics characters and underscores only
+        No spaces or quote marks, no punctuation, no non-ascii characters
+Blog
+    Articles
+        Title
+        Author
+        Created/modified dates
+        Initial paragraph
+        Support for inline images
+        Support for images between paragraphs
+        Tags
+        Can be favorited
+            Added as a bookmark with a configurable default tag set and saved location
+                Tags are the same as the article, plus "BlinkWink" and "article"
+                Default location is "/articles/BlinkWink"
+        Can browse by date
+        Can limit browing to modified dates or created dates exclusively
+            If limited to modified dates, unmodified articles are not displayed
+            If limited to created dates only, modified articles are not displayed
+        Article diffs?
+            Can show the removals/additions as highlighted and struck-through lines?
+    math support
+        Inline and discrete equations using mathjax
+    code support
+        Blocks with syntax highlight and line numbering
+        At least Python, and Haskell syntax support
