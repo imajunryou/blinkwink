@@ -1,6 +1,9 @@
 # Ignore local settings file
 settings.cfg
 
+# Ignore non-public notes
+notes/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
