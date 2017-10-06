@@ -3,6 +3,7 @@ from flask_testing import TestCase
 
 import blinkwink
 
+
 class TestTestCase(TestCase):
 
     def create_app(self):
