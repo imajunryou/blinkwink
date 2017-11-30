@@ -15,4 +15,17 @@
         <li>Which inference is valid, from the given categorical statement?</li>
       </ol>
     </div>
+
+    <div>
+      <form>
+        {{ form.csrf_token }}
+        <select name="Answer">
+          {% for opt in remaining_options %}
+          <option value="{{ opt }}">{{ opt }}</option>
+          {% endfor %}
+        </select>
+
+        <input class="button" type="submit" value="Submit your guess">
+      </form>
+    </div>
 {% endblock %}
