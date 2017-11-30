@@ -5,7 +5,8 @@ from flask_testing import TestCase
 
 import blinkwink
 
-class TestTestCase(TestCase):
+
+class TestPages(TestCase):
 
     def create_app(self):
         return blinkwink.create_app("test")
@@ -24,6 +25,7 @@ class TestTestCase(TestCase):
     def test_can_connect_to_econ_page(self):
         response = self.client.get(url_for("main.econ"))
         self.assertEqual(response.status_code, 200)
+
 
 if __name__ == "__main__":
     unittest.main()
