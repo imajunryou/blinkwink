@@ -16,16 +16,26 @@
       </ol>
     </div>
 
-    <div>
-      <form>
-        {{ form.csrf_token }}
-        <select name="Answer">
-          {% for opt in remaining_options %}
-          <option value="{{ opt }}">{{ opt }}</option>
-          {% endfor %}
-        </select>
+    {% for message in get_flashed_messages() %}
+      {{ message }}
+    {% endfor %}
 
-        <input class="button" type="submit" value="Submit your guess">
+    <div>
+      What kind of categorical statement is this:
+    </div>
+
+    <div>
+      All cats are blue.
+    </div>
+
+    <div>
+      <form method="POST">
+        {{ form.csrf_token }}
+
+        <input type="submit" value="Universal Affirmative">
+        <input type="submit" value="Universal Negative">
+        <input type="submit" value="Particular Affirmative">
+        <input type="submit" value="Particular Negative">
       </form>
     </div>
 {% endblock %}
