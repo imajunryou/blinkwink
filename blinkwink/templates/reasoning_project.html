@@ -2,9 +2,118 @@
 {% block content %}
     <h1>Reasoning and Rational Decision Making</h1>
 
-    <div>
-      <h3>Select a game to choose from:</h3>
-      <ol>
+    <details>
+      <summary>Project Reflection</summary>
+      <p>The purpose of this project was to explore a particular aspect of the material that we covered over the course of the semester in order to demonstrate some understanding beyond what might have been gained through the class alone.</p>
+      <p>I chose as my project to dig into categorical statements, and their various properties.  My initial reason was motivated by an interest in the subject, but <i>every</i> subject that we covered in this class was interesting.  What solidified this topic in particular was its amenability to the structure that I had in mind for the execution of this project.</p>
+      <p>What you have before you is a tiny game which generates random categorical statements, and then has you determine what kind of categorical statement it happens to be.  It is fairly simplistic, as the statements are built from a random collection of parts, and I had to be sure that those parts meshed together without unreadable grammar.  There are many bizarre results, but they are at least readable.</p>
+      <p>Before I dive deeper into the hurdles and successes that I faced in building this project, allow me to first cover a bit about what categorical statements are.  Broadly speaking, a categorical statement is some sentence that states some truthy factoid about a relationship between categories.  A category in this sense is just some group of things or a trait, perhaps.  "Cats", or "Things that are happy", or even "Seven-sided triangles".  The category doesn't have to contain stuff, necessarily, to find its way into a categorical statement.</p>
+      <p>There are 4 main forms of categorical statement, which are listed below:
+
+        <ul>
+          <li>
+            (A) Universal Affirmative: <code>All <b>X</b> are <b>Y</b>.</code>
+          </li>
+          <li>
+            (E) Universal Negative: <code>No <b>X</b> are <b>Y</b>.</code>
+          </li>
+          <li>
+            (I) Particular Affirmative: <code>Some <b>X</b> are <b>Y</b></code>
+          </li>
+          <li>
+            (O) Particular Negative: <code>Some <b>X</b> are not <b>Y</b></code>
+          </li>
+        </ul>
+
+      There are many ways to write these, often more complicated and verbose, but they all boil down to some variation on these four forms.  You might have noticed that I prefaced each of the forms with a vowel.  These are the standard letters used to refer to these particular forms in philosophical texts.  They make for a convenient shorthand, which I will be taking advantage of momentarily.  Notice, also, that they are pretty similar.  There are relationships that exist between these forms.
+      </p>
+      <p>
+        A and E are said to be <code><b>CONTRARIES</b></code>.  Contraries are statements where they cannot both be true at the same time.  One or the other can be true, or they can both be false, but both of them cannot be true at the same time.  An example of this:
+
+        <ul>
+          <li>All fish can swim.</li>
+          <li>No fish can swim.</li>
+        </ul>
+
+        Those can't both be true at the same time.  If the first is true, all fish can swim, and it wouldn't make sense to also say that no fish can swim.  It is easy to see that one or the other could be true, and how they can't both be true at the same time.  You might wonder how could they both be false.  Well, there is always the chance that some fish cannot swim and some fish can.  Then, neither of the above statements are true.
+      </p>
+
+      <p>
+        The pairs (A, I), and (O, E) are said to be <code><b>SUBALTERNS</b></code>.  This one is a bit tricky to organize without pictures, so I'm going to be a bit verbose here.  I is a subaltern of A, while A is a superaltern of I.  There's a direction to the relationship.  A points to I.  Likewise, E is a subaltern of O, and O is a superaltern of E.  O points to E.  Neither A or I point towards O and E in this case.  Likewise, neither O or E point to A or I, here.  These work in the following way:  if a superaltern is true, its subaltern <b>must</b> be true as well.  If a subaltern is false, its superaltern <b>must</b> be false as well.  You cannot have a superaltern disagree with its subaltern.  An example of this:
+
+        <ul>
+          <li>All happy yellow starfish enjoy calm waves.</li>
+          <li>Some happy yellow starfish enjoy calm waves.</li>
+        </ul>
+
+        If the first one is true, the second <b>must</b> be true.  It would not make sense to say that all of the starfish enjoyed the waves, while also saying that it wasn't true that some of them did.  <i>All</i> encompasses <i>some</i>.  Likewise, if the second is false, and some starfish do not enjoy the waves, then it wouldn't make sense to say that all of the starfish do.  If the second is false, the first must also be false.
+      </p>
+
+      <p>
+        The pairs (A, O), and (E, I) are said to be <code><b>CONTRADICTORIES</b></code>.  Like with the subalterns above, the pairs here are related within themselves, but not across.  A and O are contradictories to each other, but they are not contradictory to E and I.  The same goes the other direction.  E and I are contradictories to each other, but not to A and O.  These are a bit more straightforward than subalterns were:  If one item in a pair is true, its contradictory must be false.  Contradictories always disagree with one another.  An example of this:
+
+        <ul>
+          <li>No angry bears prefer candy.</li>
+          <li>Some angry bears prefer candy.</li>
+        </ul>
+
+        If the first is true, the second cannot be.  If the second is true, the first cannot be.
+      </p>
+
+      <p>
+        Finally, I and O are subcontraries.  These are like mirrored versions of the contraries A and E.  With subcontraries, they cannot both be false.  One can be false, and the other true, or they can both be true, but that is it.  An example of this:
+
+        <ul>
+          <li>Some blue squirrels are avid readers.</li>
+          <li>Some blue squirrels are not avid readers.</li>
+        </ul>
+
+        If the first is true, that doesn't really constrain the second one.  All of the blue squirrels could be avid readers, which would make the first true, and the second false.  Or, half of the squirrels could enjoy a good book, and then both statements would be true.  It isn't possible for them both to be false, though.  If the first statement is false, and it is not true that some blue squirrels are avid readers, then is must be true that some blue squirrels are not avid readers.  The false version of the first statement is just a rewording of the second one!
+      </p>
+
+      <p>A final thing that I want to at least touch on before we get to the meat of the project is transformations of categorical statements.  You can take a categorical statement and change the phrasing of it to get a new wording of the valid categorical phrase out.  There are three such transformations, briefly described below:
+
+        <ul>
+          <li>
+            <code><b>OBVERSION:</b></code> You can find the obverse of any form of categorical statement.  The obverse of a statement changes its proposition ("All" turns into "No", "Some are" turns into "Some are not"), and also the predicate is swapped with its compliment ("P" becomes "Not P").  An example for each categorical type:
+
+            <ul>
+              <li><code>All squares are red</code> becomes <code>No square is not red</code></li>
+              <li><code>No fish are tasty</code> becomes <code>All fish are not tasty</code></li>
+              <li><code>Some stars are heavy</code> becomes <code>Some stars are not light</code></li>
+              <li><code>Some books are not interesting</code> becomes <code>Some books are uninteresting</code></li>
+            </ul>
+
+            If those all look the same to you, then great!  These transforms do not change the meaning of a statement, just the wording of it.  This can sometimes make it easier to reason about, because language can be tricky.
+          </li>
+          <li>
+            <code><b>CONVERSION:</b></code> You can find the conversion of universal negatives and particular affirmatives only.  The converse of a statement just swaps its subject and predicate.  An example for each valid type:
+
+            <ul>
+              <li><code>No salmon are angry</code> becomes <code>No angry things are salmon</code></li>
+              <li><code>Some people are happy</code> becomes <code>Some happy things are people</code></li>
+            </ul>
+
+            Again, these transformations do not change the meaning.  They just provide a rewording that might be easier to work with.
+          </li>
+          <li>
+            <code><b>CONTRAPOSITION:</b></code> The contraposition is only valid for universal affirmatives and particular negatives.  Here, you replace the subject with its compliment, and you also replace the predicate with its compliment.  Examples follow:
+
+            <ul>
+              <li><code>All triangles are things with exactly three sides</code> becomes <code>All non-triangles are things without exactly three sides</code></li>
+              <li><code>Some happy thoughts are not about winning</code> becomes <code>Some unhappy thoughts are not about losing</code></li>
+            </ul>
+
+            These ones are a bit more subtle, but notice that they are just rewordings of the same thing.
+          </li>
+        </ul>
+      </p>
+
+      <p>Now that we've covered a bit about these forms, how they relate, and how they can be transformed, lets dive into the details of this project itself.  My goal was to build a game that would ask a variety of questions, and judge your answers along the way.  A simple endless, scoreless, quiz.</p>
+      <p>
+        Initially, I had 8 different types of questions in mind:
+
+        <ol>
         <li>What transformation was used to make the given categorical statement?</li>
         <li>What is the relationship between the given categorical statements?</li>
         <li>What does the given transformation turn the given categorical statement into?</li>
@@ -14,13 +123,57 @@
         <li>Which categorical statement is represented from the given form?</li>
         <li>Which inference is valid, from the given categorical statement?</li>
       </ol>
-    </div>
 
-    <div>
-    {% for message in get_flashed_messages() %}
-      {{ message }}
-    {% endfor %}
-    <div>
+      These were variations on the previously covered 3 kinds of things: Categorical statements, the relationships between them, and transformations of them.  I had some hope that I could get them all working in the given time frame.
+      </p>
+
+      <p>
+        The steps involved came in 3 broad groups:
+        <ul>
+          <li>Gathering information on the subject</li>
+          <li>Planning the flow and layout of the interface</li>
+          <li>Constructing the backend</li>
+        </ul>
+
+        As with many things in life, all of the fire happened out of sight.  In this case, the backend code gummed up the works.
+      </p>
+
+      <p>
+        Gathering the information wasn't too arduous.  I found a lovely <a href="https://web.archive.org/web/20170508212826/http://academic.csuohio.edu/polen/LC9_Help/4/immediate.htm">pair</a> of <a href="https://web.archive.org/web/20171025225829/https://plato.stanford.edu/entries/square/">documents</a> that covered the transformations and relationships of the categorical statements in sufficient depth for my purposes, and we covered much of the material in class.
+      </p>
+
+      <p>
+        Planning the flow and layout of the interface started out simply enough, but hit some barriers as I started trying to construct things.  Initially what I wanted was for any of those previously listed questions to be picked at random, and for the chosen the question to appear in nice bolded text, with a lovely formatted statement or group of statements below, fitting the theme of the question, and delightfully presented buttons for the answers below that.  I wanted wrong answers to result in disabled buttons, allowing you to try multiple times before getting it right.  With the way I implemented things, this all ended up getting sacrificed for the sake of time.
+      </p>
+      <p>
+        Instead, there is only one type of question built (What is the form of the given categorical statement?).  The question and also the statement itself are in unsightly little boxes instead of being formatted in a lovely way.  The buttons are bog-standard HTML with no shiny styling.  Clicking the wrong answer acts exactly like clicking the right answer: You get taken to another page which tells you if you got things right or wrong.
+      </p>
+      <p>It is all functional, but it isn't pretty, and it isn't really what I wanted.</p>
+      <p>
+        The implementation of the backend is what got to me.  I've been attempting a handful of new things all at once with this:
+
+        <ul>
+          <li>I decided to use the Flask web-framework for the Python programming language to build the pages and generate all of the questions.  I'm not terribly familiar with Flask, and this was an opportunity to improve on that familiarity.</li>
+          <li>I decided to host this on my own personal site instead of my standard ePortfolio on Google Sites which I've used in years past.  This let me explore the adventures of deploying websites out in the real world.</li>
+          <li>I made the choice to dive into version control with Git, which I have only started making good use of.  It is one of the main standards for tracking changes in codebases within the software development industry, and I want to be more comfortable with it.</li>
+          <li>I wanted to attempt a style of programming known as test-driven-development, wherein I would write tests for every bit of functionality before implementing that functionality.  This is a <b>fantastic</b> way to build software, with some <b>really</b> nice benefits, but it is rather predicated on knowing what the heck you're doing.  Since I'm still learning, this doesn't necessarily apply to me.</li>
+        </ul>
+      </p>
+
+      <p>Using Git was never a problem, and deploying to my own site ended up being a straighforward, fluid experience.  No troubles there.  My lack of familiarity with Flask, however, sent me headlong into a wall with regards to writing my test cases.</p>
+      <p>As time began to run out, I made the terrible decision to abandon writing tests.  This is generally the first thing to go, and the very last thing that should.  Because I was building without tests, I quickly started breaking things in ways that were not immediately obvious, and stuff rapidly devolved into a mess.</p>
+      <p>I couldn't readily find ways to pass the sort of information that I wanted to pass between pages with the tools that I had pigeon-holed myself into using, and this, combined with the lack of tests, slowed my progress.</p>
+      <p>If I could start all over again, I would do more reading up on Flask and test-driven development, first.  In fact, since starting this project, I've acquired and begun reading several books to exactly this effect.  I would have stuck with the test-writing, and most importantly, I would have started earlier.</p>
+      <p>An inescapable component of all of the problems that I had was that I fell prey to everyone's favorite hurdle, the planning fallacy.  I kept putting it off, because I had more immediate work due in other classes, and this seemed like something that I would be able to tackle.  Despite deciding to use tools that I'm unfamiliar with.  Despite not having built something like this before.  Despite being largely unfamiliar with actually implementing the test-driven-development style of writing code.</p>
+      <p>Oops.</p>
+      <p>So, beyond learning neat things about categorical statements, and in addition to learning a bunch of neat stuff about software development (in a panicked rush, perhaps), I have also relearned that I am entirely vulnerable to my biases, despite being aware of them.  Just like I could have predicted in advance.  Just like I have predicted for others while working on this.  Silly me.</p>
+    </details>
+
+    <details open>
+      <summary>How to play:</summary>
+      <p>Below you will see a question, some information, and some buttons.</p>
+      <p>Answer the question by using the information to decide which button to click.  You will then be told whether or not your answer was correct, and given the option to return here for a new question.</p>
+    </details>
 
     <div>
       <form method="POST">
