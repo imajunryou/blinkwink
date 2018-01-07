@@ -1,0 +1,17 @@
+Ima navigates to the website and sees the main page.
+
+At the top of the page is a menu with a pulldown on the left side.
+
+The pulldown contains, among its options, an option for Character Generation.
+
+Ima selects this option, and is taken to a new page.
+
+This page has a scrollable list of RPG systems, a button for initializing the character generation, and a message.
+
+The message mentions the need to log in to preserve work, and otherwise has instructions on what to do.
+
+Ima clicks the initialize button without selecting a system, only to find that it does nothing in that case.
+
+Ima looks at the list of systems and sees an entry for "Wayward".  Ima selects this and clicks the initialize button.
+
+Ima is taken to a new screen with a large form to fill out.

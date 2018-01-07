@@ -1,0 +1,19 @@
+Ima navigates to the website and sees the main page.
+
+At the top of the page is a menu with a pulldown on the left side.
+
+The pulldown contains, among its options, an option for Rithmomachy.
+
+Ima clicks on the Rithmomachy option, and is taken to a new page.
+
+This page has the same menu header at the top.
+
+This page has a board displayed in the center of the screen, initially empty.
+
+The board is 8x16 squares, oriented such that the width is greater than the height.
+
+There is a button below the board titled "Play".
+
+Ima clicks the button, and the board is populated with pieces.
+
+Rules to incorporate: https://www.boardspace.net/rithmomachy/english/rules.html
