@@ -10,3 +10,24 @@ Ima sees that the game portion consists of a few components of its own.  Ima see
 Ima clicks an incorrect transformation, such as "Obversion", and is given a message indicating that they chose incorrectly.  The question remains, but the chosen incorrect answer is disabled.
 
 Ima clicks a correct transformation, such as "Conversion", and is given a message indicating that they chose correctly.  The question changes, as do the answers and available information.
+
+
+Shorthand stories to expand upon:
+
+8 types of questions:
+    2 statements -> Guess the transformation
+    2 statements -> Guess the relationship
+    1 statement, 1 transformation -> Guess the transformed statement
+    1 statement, 1 relationship -> Guess the related statement
+    1 transformed statement, 1 transformation -> Guess original statement
+    1 statement -> Guess the form
+    1 form -> Guess the corresponding statement
+    1 statement -> Guess the valid inferrence
+
+Things that need to be possible for those questions to work:
+    Ability to generate categories from words or phrases
+    Ability to generate categorical statements from categories
+    Ability to reversibly transform categorical statements
+    Ability to generate each form of statement from the same categories
+    Ability to generate basic inferrences from categorical statements
+    Ability to generate the relationship between two forms of a categorical statement
