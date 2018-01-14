@@ -5,18 +5,25 @@ Ima navigates to the main website, and sees a header with options.  The left sid
 
 Ima clicks the option for “Critical Thinking Project” and is taken to a page with three components:  A reflective statement, a set of instructions, and a game.  The top of the page still has the menu header.
 
-Ima sees that the game portion consists of a few components of its own.  Ima sees a question about the kind of transformation that was used to make a given categorical statement.  It contains a question of the form "What transformation was used to transform the first categorical statement into the second?".  It contains a pair of statements such as "No salmon are angry" and "No angry things are salmon".  It contains options for each of the transformation types "Obversion", "Conversion", and "Contraposition".
+Ima sees a question about the kind of transformation that was used to make a given categorical statement.  It contains a question of the form "What transformation was used to transform the first categorical statement into the second?".  It contains a pair of statements such as "No salmon are angry" and "No angry things are salmon".  It contains options for each of the transformation types "Obversion", "Conversion", and "Contraposition".
 
 Ima clicks an incorrect transformation, such as "Obversion", and is given a message indicating that they chose incorrectly.  The question remains, but the chosen incorrect answer is disabled.
 
 Ima clicks a correct transformation, such as "Conversion", and is given a message indicating that they chose correctly.  The question changes, as do the answers and available information.
 
+Ima sees a question about the kind of relationship between two variations of a given categorical statement.  It contains a question of the form "What is the relationship from the first statement to the second?".  It contains a pair of statements such as "All people are happy" and "Some people are happy".  It contains options for each of the relationship types:
+"Contrary", "Subaltern", "Superaltern", "Contradictory", "Subcontrary"
+
+Ima clicks an incorrect relationship, such as "Subaltern", and is given a message indicating that they chose incorrectly.  The question remains, but the chosen incorrect answer is disabled.
+
+Ima clicks a correct transformation, such as "Superaltern", and is given a message indicating that they chose correctly.  The question changes, as do the answers and available information.
+
 
 Shorthand stories to expand upon:
 
 8 types of questions:
-    2 statements -> Guess the transformation
-    2 statements -> Guess the relationship
+*   2 statements -> Guess the transformation
+*   2 statements -> Guess the relationship
     1 statement, 1 transformation -> Guess the transformed statement
     1 statement, 1 relationship -> Guess the related statement
     1 transformed statement, 1 transformation -> Guess original statement
