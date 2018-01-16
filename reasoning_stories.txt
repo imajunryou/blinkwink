@@ -18,14 +18,27 @@ Ima clicks an incorrect relationship, such as "Subaltern", and is given a messag
 
 Ima clicks a correct transformation, such as "Superaltern", and is given a message indicating that they chose correctly.  The question changes, as do the answers and available information.
 
+Ima sees a question about the results of a transformation on a given categorical statement.  It contains a question of the form "What is the resulting statement when the given transform is applied to the given statement?".  It contains a transform, such as "Obversion", and a statement, such as "All children are young".  It contains options for each valid transformation of the statement:
+"No child is not young", "All non-children are old"
+
+Ima clicks an incorrect result statement, such as "All young people are children", and is given a message indicating that they chose incorrectly.  The question remains, but the chosen incorrect answer is disabled.
+
+Ima clicks a correct result statement, such as "No child is not young", and is given a message indicating that they chose correctly.  The question changes, as do the answers and available information.
+
+Ima sees a question about the relationship between statements.  It contains a question of the form "What statement shares the given relationship with the given statement?".  It contains a relationship, such as "Contrary", and a statement, such as "No fish can swim".  It contains options for each possible kind of categorical statement, such as:
+"All fish can swim", "Some fish can swim", "Some fish cannot swim".
+
+Ima clicks an incorrect result statement, such as "Some fish can swim", and is given a message indicating that they chose incorrectly.  The question remains, but the chosen incorrect answer is disabled.
+
+Ima clicks a correct result statement, such as "All fish can swim", and is given a message indicating that they chose incorrectly.  The question remains, but the chosen incorrect answer is disabled.
 
 Shorthand stories to expand upon:
 
 8 types of questions:
 *   2 statements -> Guess the transformation
 *   2 statements -> Guess the relationship
-    1 statement, 1 transformation -> Guess the transformed statement
-    1 statement, 1 relationship -> Guess the related statement
+*   1 statement, 1 transformation -> Guess the transformed statement
+*   1 statement, 1 relationship -> Guess the related statement
     1 transformed statement, 1 transformation -> Guess original statement
     1 statement -> Guess the form
     1 form -> Guess the corresponding statement
