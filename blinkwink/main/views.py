@@ -98,3 +98,8 @@ def reasoning_status(status):
 @main.route("econ")
 def econ():
     return render_template("econ_project.html")
+
+
+@main.route("english")
+def english():
+    return render_template("english.html")
