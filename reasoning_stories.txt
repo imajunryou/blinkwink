@@ -32,6 +32,14 @@ Ima clicks an incorrect result statement, such as "Some fish can swim", and is g
 
 Ima clicks a correct result statement, such as "All fish can swim", and is given a message indicating that they chose incorrectly.  The question remains, but the chosen incorrect answer is disabled.
 
+Ima sees a question about the inverse transformation of a statement.  It contains a question of the form "What statement was used with the given transform to produce the given statement?".  It contains a transform, such as "Obversion", and a transformed statement such as "No child is not young".  It also contains a series of statements, only one of which would have resulted in the given statement if the given transform was applied.  Examples are "All children are young", "Some children are young", "Some children are not young".
+
+Ima sees a question about the form of a statement.  It contains a question of the form "What form is the given statement?"  It contains a statement such as "No chickens are feathered", and a list of possible forms: "Universal affirmative", "Universal negative", "Particular affirmative", "Particular negative"
+
+Ima sees a question about the statement corresponding to a form.  It contains a quesiton of the form "What statement has the given form?"  It contains a form, such as "Universal Negative", and statements corresponding to each possible form: "All fruit are tasty", "Some fruit are tasty", "No fruit is tasty", "Some fruit is not tasty".
+
+Ima sees a question about the valid inferrence of a statement.  It contains a question of the form "Which inferrence is valid for the given statment?"  It contains a statement of the form "Some apples are red", and a list of transformed statements, which are inferences.  "Some red things are apples", "Some apples are not nonred", "Some nonred things are not"
+
 Shorthand stories to expand upon:
 
 8 types of questions:
