@@ -103,3 +103,7 @@ def econ():
 @main.route("english")
 def english():
     return render_template("english.html")
+
+@main.route("stats")
+def stats():
+    return render_template("stat.html")

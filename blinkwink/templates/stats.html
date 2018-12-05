@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+{% block content %}
+<div>
+  <h1>Statistics For Applied Science</h1>
+  <h3>Final Project</h3>
+</div>
+<div>
+  <p>Below are links to my final project work for my statistics course.  As part of a small group, we were tasked with picking a research question, and investigating it.  The results culminated into a 36"x24" poster, a PDF version of which is one of the links."</p>
+  <p>The other link is to a short reflection paper, where I expand more upon the details of the process for how this project unfolded.</p>
+</div>
+<div>
+  <ul>
+    <li>
+      <a href="{{ url_for('static'), filename='docs/stats/poster.pdf') }}">Project Poster</a>
+    </li>
+    <li>
+      <a href="{{ url_for('static'), filename='docs/stats/reflection.pdf') }}">Reflection Paper</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
