@@ -106,4 +106,4 @@ def english():
 
 @main.route("stats")
 def stats():
-    return render_template("stat.html")
+    return render_template("stats.html")
