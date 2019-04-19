@@ -1,8 +1,8 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import FormField, HiddenField, SubmitField, StringField
 
 
-class KindOfCategoricalForm(Form):
+class KindOfCategoricalForm(FlaskForm):
 
     option_1 = SubmitField("Universal Affirmative")
     option_2 = SubmitField("Universal Negative")
@@ -10,7 +10,7 @@ class KindOfCategoricalForm(Form):
     option_4 = SubmitField("Particular Negative")
 
 
-class QuestionForm(Form):
+class QuestionForm(FlaskForm):
     question = StringField()
     statement = StringField()
     options = FormField(KindOfCategoricalForm)

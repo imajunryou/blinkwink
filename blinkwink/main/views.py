@@ -107,3 +107,7 @@ def english():
 @main.route("stats")
 def stats():
     return render_template("stats.html")
+
+@main.route("english_2")
+def english_2():
+    return render_template("english2.html")
