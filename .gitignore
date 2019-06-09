@@ -1,5 +1,5 @@
 # Ignore local settings file
-settings.cfg
+settings.cfg*
 
 # Ignore non-public notes
 notes/
