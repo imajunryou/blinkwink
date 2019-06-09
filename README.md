@@ -41,7 +41,7 @@ To build this project locally, the following steps must be performed (I think; l
 
 Once you have a local copy, fire off `manage.py` with the `runserver` argument:
 
-```python
+```bash
 python3 manage.py runserver
 ```
 
