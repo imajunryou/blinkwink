@@ -23,3 +23,26 @@ In no particular order at the top level:
   - *Math support* Delicious formulas!  Graphs!  Maybe some interactivity?!
   - *Code support* At least the normal HTML code blocks, but ideally something slightly more interactive.  What, particularly?  I dunno.  Maybe nothing... But... Maybe *something*...
 - **Notepad** Sticky notes on a canvas?  Hierarchical document structure?  Something with nodes and edges?!  Something with rich text?!  Something where I can make a quick note, or write a chunk of stuff, and be able to easily find and reference it later.
+
+# To Build This Project
+
+To build this project locally, the following steps must be performed (I think; let me know if it seems I missed something):
+
+- Clone the repository
+- Create a local Python virtual environment
+- Activate the new virtual environment
+- Install the various dependencies found in Requirements.txt
+- Create a file called `settings.cfg` in `/blinkwink/blinkwink` at the same level as `config.py`
+   - This file should contain the following two lines:
+   - `WTF_CSRF_ENABLED = True`
+   - `SECRET_KEY = "Your super-secret key that you should never share with anyone"`
+
+# To Run This Project Locally
+
+Once you have a local copy, fire off `manage.py` with the `runserver` argument:
+
+```python
+python3 manage.py runserver
+```
+
+By default, this will start running on port 5000.
