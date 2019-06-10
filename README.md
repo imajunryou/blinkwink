@@ -31,11 +31,16 @@ To build this project locally, the following steps must be performed (I think; l
 - Clone the repository
 - Create a local Python virtual environment
 - Activate the new virtual environment
-- Install the various dependencies found in Requirements.txt
+- Install the various dependencies found in `Requirements.txt`
 - Create a file called `settings.cfg` in `/blinkwink/blinkwink` at the same level as `config.py`
    - This file should contain the following two lines:
    - `WTF_CSRF_ENABLED = True`
    - `SECRET_KEY = "Your super-secret key that you should never share with anyone"`
+- Set up an environment variable to point at this file:
+
+```bash
+export BLINKWINK_CONFIG=settings.cfg
+```
 
 # To Run This Project Locally
 
