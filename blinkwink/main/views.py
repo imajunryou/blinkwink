@@ -111,3 +111,15 @@ def stats():
 @main.route("english_2")
 def english_2():
     return render_template("english2.html")
+
+@main.route("calc")
+def calc():
+    return render_template("calc.html")
+
+@main.route("strength")
+def strength():
+    return render_template("strength.html")
+
+@main.route("philosophy")
+def philosophy():
+    return render_template("philosophy.html")

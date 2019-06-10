@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div>
+  <h1>Introduction to Philosophy</h1>
+  <h3>Research Paper</h3>
+</div>
+
+<div>
+  <p>This primarily consists of a research paper on the problem of free will.  Within, I lay out the problem, and explore a handful of different interpretations and solutions, from ancient theology and modern science both.</p>
+</div>
+<div>
+  <ul>
+    <li>
+      <a href="{{ url_for('static', filename='docs/free_will.pdf') }}">Free Will</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div>
+  <h1>Differential Calculus</h1>
+  <h3>Pipeline Problem</h3>
+</div>
+
+<div>
+  <p>This project was in order to find the most affordable path between two points, given various routes with various costs.  Do you go west, through cheap land you own, adding extra distance?  Do you go east, and suffer the cost of digging through a mountain to shave off some miles?  Do you cross over private land and pay fees for doing so?  There are several options, and I explore each of them, coming to a final decision with the help of differential calculus.</p>
+  <p>The end of the document also contains a brief reflection on the class, written at the end of that class.</p>
+</div>
+<div>
+  <ul>
+    <li>
+      <a href="{{ url_for('static', filename='docs/pipeline.pdf') }}">Pipeline Project</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
