@@ -3,6 +3,16 @@ body {
   background: #eee;
 }
 
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    
+    max-width: 960px;
+
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
 a, h1, h2 {
   color: #377BA8;
 }
