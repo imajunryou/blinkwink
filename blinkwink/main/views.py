@@ -111,3 +111,7 @@ def stats():
 @main.route("english_2")
 def english_2():
     return render_template("english2.html")
+
+@main.route("anthropology")
+def anthropology():
+    return render_template("anthropology.html")
