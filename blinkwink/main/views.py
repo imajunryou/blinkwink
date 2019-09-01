@@ -115,3 +115,16 @@ def english_2():
 @main.route("anthropology")
 def anthropology():
     return render_template("anthropology.html")
+
+@main.route("calc")
+def calc():
+    return render_template("calc.html")
+
+@main.route("strength")
+def strength():
+    return render_template("strength.html")
+
+@main.route("philosophy")
+def philosophy():
+    return render_template("philosophy.html")
+

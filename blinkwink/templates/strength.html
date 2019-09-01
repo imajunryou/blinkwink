@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div>
+  <h1>Strength Training</h1>
+  <h3>Share-An-App</h3>
+</div>
+
+<div>
+  <p>This primarily consists of a short review of a web application, <a href="https://complice.co/">Complice</a>, that I found relevantly useful to my strength training class.</p>
+</div>
+
+<div>
+  <ul>
+    <li>
+      <a href="{{ url_for('static', filename='docs/complice.pdf') }}">Complice Review</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
