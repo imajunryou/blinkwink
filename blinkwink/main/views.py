@@ -128,3 +128,6 @@ def strength():
 def philosophy():
     return render_template("philosophy.html")
 
+@main.route("macroecon")
+def macroecon():
+    return render_template("macroecon_project.html")
