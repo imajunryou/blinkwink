@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-02-29 Sat 02:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Creating Capture Templates</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Chris Shepard" />
+<meta name="description" content="Technical Instructions Project for English 3100"
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>pre.src{background:#1c1f26;color:white;}</style>
+<style>pre.src:before{background:white;color:#1c1f26;top:-5px;}</style>
+<style>code{background:#121f26;color:white;}</style>
+<style>table th{background:#121f26;color:white;font-weight:strong;border:#121f26}</style>
+<style>table td{border:1px solid #121f26}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Creating Capture Templates
+<br />
+<span class="subtitle">For Emacs Org Mode</span>
+</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org87c7e93">1. Overview</a></li>
+<li><a href="#orge5c3ca5">2. Prerequisites</a></li>
+<li><a href="#orgf03870a">3. Configure Template Storage</a></li>
+<li><a href="#org2f27b5b">4. Define Template Shortcut Groups</a></li>
+<li><a href="#org2c62e03">5. Define Template Context Limitations</a></li>
+<li><a href="#orge753871">6. Define Template Type &amp; Target</a></li>
+<li><a href="#org4c90425">7. Apply a Template String to the Capture Template</a></li>
+<li><a href="#orgd222ce4">8. Configure Capture Template Properties</a></li>
+<li><a href="#org20ce716">9. Quick Reference of Common <i>Emacs</i> Commands</a></li>
+<li><a href="#orgc2464af">10. Further Reading</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org87c7e93" class="outline-2">
+<h2 id="org87c7e93"><span class="section-number-2">1</span> Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Capture templates allow you to easily record notes on the fly, with only minor interruptions to your workflow.  They are versatile and straightforward to set up.  Here, we build a capture template and implement some organizational tweaks along the way to illustrate some of the available possibilities for managing multiple capture templates.
+</p>
+
+<p>
+There are many ways to implement and organize capture templates.  Once comfortable with the process, you should explore and experiment.  Discover what works best for you.
+</p>
+</div>
+</div>
+<div id="outline-container-orge5c3ca5" class="outline-2">
+<h2 id="orge5c3ca5"><span class="section-number-2">2</span> Prerequisites</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Before we begin, make sure that you have the following prepared:
+</p>
+
+<ul class="org-ul">
+<li><i>Emacs</i> 25.2.2 or higher</li>
+<li><i>Org</i> 9.2.5 or higher – this is usually bundled with <i>Emacs</i></li>
+<li>An initialization file is already set up, in use by <i>Emacs</i></li>
+</ul>
+
+<p>
+It would help if you had some basic familiarity with interacting with <i>Emacs</i>.  In particular, the command syntax is as follows:  Read <code>C-c u</code> as “while holding the command key, press c.  Release the command and c keys and then press u by itself.”  The standard mapping of the command key is the Ctrl key by default.  Read <code>M-x eval-region</code> as “While holding the meta key, press x.  Release the meta and x keys and then type the phrase ‘eval-region’ followed by pressing enter.”  The standard mapping of the meta key is the Alt key by default.  For more information about <i>Emacs</i> command syntax, or <i>Emacs</i> in general, give the tutorial a read before continuing (accessible online or through <i>Emacs</i> directly with the command <code>C-h t</code>).
+</p>
+
+<p>
+It would be best if you had some basic familiarity with the structure of Org files.  Specifically, Org files consist of nodes, which can contain other nodes, plain text, lists, checkboxes, and tables.  Here is a brief example of each of these items together, as an example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span class="linenr"> 1: </span><span style="color: #eceff1; background-color: #455A64; font-size: 130%; font-weight: bold;">* Big list of hobbies</span>
+<span class="linenr"> 2: </span><span style="color: #263238;">*</span><span style="color: #e1f5fe; background-color: #35575b; font-size: 120%;">* Reindeer wrangling</span>
+<span class="linenr"> 3: </span><span style="color: #263238;">*</span><span style="color: #e1f5fe; background-color: #35575b; font-size: 120%;">* Mountain pushing</span>
+<span class="linenr"> 4: </span><span style="color: #263238;">*</span><span style="color: #e1f5fe; background-color: #35575b; font-size: 120%;">* Creative paper stapling</span>
+<span class="linenr"> 5: </span><span style="color: #eceff1; background-color: #455A64; font-size: 130%; font-weight: bold;">* Hobby rankings</span>
+<span class="linenr"> 6: </span><span style="color: #e3f2fd; background-color: #1c1f26;">| Hobby                   | Rank |</span>
+<span class="linenr"> 7: </span><span style="color: #e3f2fd; background-color: #1c1f26;">|-------------------------+------|</span>
+<span class="linenr"> 8: </span><span style="color: #e3f2fd; background-color: #1c1f26;">| Reindeer wrangling      | A    |</span>
+<span class="linenr"> 9: </span><span style="color: #e3f2fd; background-color: #1c1f26;">| Creative paper stapling | B    |</span>
+<span class="linenr">10: </span><span style="color: #e3f2fd; background-color: #1c1f26;">| Mountain pushing        | C    |</span>
+<span class="linenr">11: </span><span style="color: #eceff1; background-color: #455A64; font-size: 130%; font-weight: bold;">* To-do</span>
+<span class="linenr">12: </span>Things that need to get done at some point:
+<span class="linenr">13: </span>- <span style="font-weight: bold;">[-]</span> High-five people on a mountain
+<span class="linenr">14: </span>  - <span style="font-weight: bold;">[ ]</span> Someone shorter than me
+<span class="linenr">15: </span>  - <span style="font-weight: bold;">[X]</span> Someone taller than me
+<span class="linenr">16: </span>- Remember:
+<span class="linenr">17: </span>  - Staple only papers that aren't needed
+<span class="linenr">18: </span>  - Several factors improve paper stapling:
+<span class="linenr">19: </span>    - Shape of paper
+<span class="linenr">20: </span>    - Colors used
+<span class="linenr">21: </span>    - Orientation and size of staples
+</pre>
+</div>
+
+<p>
+We write this document from the perspective of a <i>Linux</i> file system, which means that when we discuss files and paths, it is in terms of a “home directory,” written as a tilde (<b>~</b>).  If you are coming from a Windows environment, think of this as similar to <b>C:\</b>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf03870a" class="outline-2">
+<h2 id="orgf03870a"><span class="section-number-2">3</span> Configure Template Storage</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+When you are first getting started with capture templates, you may find it convenient to insert them directly into your initialization file.  Storing your capture templates inside your initialization file works in the short-term, but as your collection grows, it is challenging to keep them organized.
+</p>
+
+<p>
+We implement a two-layer approach to our capture template storage.  The configuration of the initialization file loads a template index, which in turn loads our template out of a separate file.
+</p>
+
+<p>
+This configuration provides us with the beginnings of a tree-like organizational method:
+</p>
+
+<p>
+To begin, select a location for storing the template index file, and create the file there.  For example, we create a file <b>template_index.el</b> and place it in <b>~/capture_templates/</b>.
+</p>
+
+<blockquote>
+<p>
+<b>Note:</b> The <b>el</b> file extension is for <i>Emacs Lisp</i>. We write our templates in <i>Emacs Lisp</i>.  You do not need to know <i>Emacs Lisp</i> to create capture templates, but it does allow for some powerful configuration options.
+</p>
+</blockquote>
+
+<p>
+We must point this file out in the initialization file so that each time Emacs starts, our templates are loaded.  We must also initialize the variable <code>org-capture-templates</code>, which stores our templates and shortcut groups.  If we don’t initialize this variable before attempting to load the templates, we receive errors.  Enter the following lines in your initialization file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Initialize the org-capture-templates variable</span>
+(<span style="color: #fff59d;">setq</span> org-capture-templates '())
+
+<span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Load Capture Templates</span>
+(load <span style="color: #9ccc65;">"~/capture_templates/template_index.el"</span>)
+</pre>
+</div>
+
+<blockquote>
+<p>
+<b>NOTE</b>: In <i>Emacs Lisp</i> text prefaced with a semicolon acts as a comment.  <i>Emacs</i> ignores comments when loading the file.
+</p>
+</blockquote>
+
+<p>
+Open <b>template_index.el</b>.  We first add some documentation to the index file.  This documentation helps us keep things organized, and serves as a useful reference if we decide to share this file in the future.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr">1: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">template_index.el -- Organizes and loads individual template files</span>
+<span class="linenr">2: </span>
+<span class="linenr">3: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Commentary:</span>
+<span class="linenr">4: </span><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Capture template documentation reference:</span>
+<span class="linenr">5: </span><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">https://orgmode.org/manual/Capture-templates.html#Capture-templates</span>
+<span class="linenr">6: </span>
+<span class="linenr">7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr">8: </span>
+<span class="linenr">9: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">template_index.el ends here</span>
+</pre>
+</div>
+
+<p>
+Next, we create a template group file called <b>school_templates.el</b> and place it in the same directory as our template index, <b>~/capture_templates</b>.  We then add some documentation to this group file, as well.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr">1: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">school_templates.el -- Contains capture templates related to school</span>
+<span class="linenr">2: </span>
+<span class="linenr">3: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Commentary:</span>
+<span class="linenr">4: </span><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Contains capture templates for various common tasks related to school</span>
+<span class="linenr">5: </span><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">For example, adding reminders for upcoming assignments to a to-do list</span>
+<span class="linenr">6: </span>
+<span class="linenr">7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr">8: </span>
+<span class="linenr">9: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">school_templates.el ends here</span>
+</pre>
+</div>
+
+<p>
+From here, we need to have the template index load the school templates file.  Add a load command to the “code” section of <b>template_index.el</b>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr">7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr">8: </span>
+<span class="linenr">9: </span>(load <span style="color: #9ccc65;">"~/capture_templates/school_templates.el"</span>)
+</pre>
+</div>
+
+<p>
+We have now created a template index file to organize different groups of capture templates, and we have created a template file for school-related templates as our first group.  We have also configured the index and initialization files to load our templates when <i>Emacs</i> starts up.
+</p>
+</div>
+</div>
+<div id="outline-container-org2f27b5b" class="outline-2">
+<h2 id="org2f27b5b"><span class="section-number-2">4</span> Define Template Shortcut Groups</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+We choose capture templates by a unique shortcut key defined in the definition of each template.  Shortcut groups provide a means of grouping one or more templates under a single shortcut key.  This grouping allows for a higher number of capture templates, while also helping to keep them organized.
+</p>
+
+<p>
+Capture templates and template shortcut groups are both stored in the variable <code>org-capture-templates</code>.  We begin by setting up the configuration for this variable.  In the code section of our <b>school_templates.el</b> file, set the variable to append a quoted list to itself, as seen below:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr">7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr">8: </span>
+<span class="linenr">9: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates (append org-capture-templates '()))
+</pre>
+</div>
+
+<blockquote>
+<p>
+<b>Note:</b> The appended list a quoted list (indicated by the leading apostrophe).  Using a quoted list prevents the contents of the list from being thoroughly evaluated before being appended to the variable.  It is the difference between adding “1+2” to the variable instead of just “3”.
+</p>
+</blockquote>
+
+<p>
+We are appending a list of things to the variable instead of merely overwriting it because other files may already list templates.  By appending items, this allows us to shuffle our templates around without having to worry about load order.
+</p>
+
+<p>
+We place all of our shortcut groups and capture templates inside the quoted list that we are appending to the <code>org-capture-templates</code> variable.
+</p>
+
+<p>
+A shortcut group consists of a pair of parentheses wrapping two components: a <i>string</i> representing a shortcut – one or more keys that we must press to pick the group – and a <i>string</i> representing a label for the group.  We  add a shortcut group to our quoted list and assign it the letter “s” and a label of “School stuff.”
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr"> 7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates
+<span class="linenr">10: </span>      (append org-capture-templates
+<span class="linenr">11: </span>              '(
+<span class="linenr">12: </span>                (<span style="color: #9ccc65;">"s"</span> <span style="color: #9ccc65;">"School stuff"</span>)
+<span class="linenr">13: </span>                )))
+</pre>
+</div>
+
+<blockquote>
+<p>
+<b>Note:</b> White space formatting isn’t syntactically necessary within our code.  Make good use of this freedom to make your code more readable.
+</p>
+</blockquote>
+
+<p>
+If we save our work and reload everything, we can see our shortcut in the capture template menu (accessed with <code>M-x org-capture</code>):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org">Select a capture template
+<span style="color: #b0bec5;">=========================</span>
+
+[s]...  School stuff...
+</pre>
+</div>
+
+<blockquote>
+<p>
+<b>Note:</b> Shortcut groups can be nested.  Nested shortcut groups have multi-letter shortcuts, with the leading letters representing the preceding shortcut groups that we must traverse to reach them.
+</p>
+</blockquote>
+
+<p>
+Next, we begin our capture template.  A capture template consists of a pair of parentheses wrapping six components: a <i>string</i> representing a shortcut for the template, a <i>string</i> representing a label for the template, the <i>type</i> of the template, the <i>target</i> of the template, the <i>template string</i>, and any <i>properties</i> that we need to configure.
+</p>
+
+<p>
+We start our capture template by providing a shortcut and label.  In effect, this is making a second shortcut group.  We expand on this base in future sections.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr"> 7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates
+<span class="linenr">10: </span>      (append org-capture-templates
+<span class="linenr">11: </span>              '(
+<span class="linenr">12: </span>                (<span style="color: #9ccc65;">"s"</span> <span style="color: #9ccc65;">"School stuff"</span>)
+<span class="linenr">13: </span>                (<span style="color: #9ccc65;">"sr"</span> <span style="color: #9ccc65;">"Reading Assignment"</span>)
+<span class="linenr">14: </span>                )))
+</pre>
+</div>
+
+<p>
+Our capture template adds a reading assignment entry to a to-do list.  By saving and reloading everything, this “Reading Assignment” entry is visible from within the “School stuff” section of the capture template menu.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org">Select a capture template
+<span style="color: #b0bec5;">=========================</span>
+
+s [r]...  Reading Assignment...
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2c62e03" class="outline-2">
+<h2 id="org2c62e03"><span class="section-number-2">5</span> Define Template Context Limitations</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Capture templates can be constrained to particular contexts, meaning that you can limit the conditions under which they show up in the capture template menu.  We implement such a limitation for our “School stuff” shortcut group, restricting it to be unavailable when we are in a file called <b>hobbies.org</b>.
+</p>
+
+<p>
+Start by defining the variable <code>org-capture-templates-contexts</code> in our initialization file.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Initialize variables for capture templates and contexts in Org</span>
+(<span style="color: #fff59d;">setq</span> org-capture-templates '())
+(<span style="color: #fff59d;">setq</span> org-capture-templates-contexts '())
+
+<span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Load Capture Templates</span>
+(load <span style="color: #9ccc65;">"~/capture_templates/template_index.el"</span>)
+</pre>
+</div>
+
+<p>
+We keep our contexts defined alongside their corresponding capture templates.  Inside <b>school_templates.el</b> append an empty quoted list to the <code>org-capture-templates-contexts</code> variable, after the section involving our capture templates.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr"> 7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr"> 8: </span><span style="color: #b0bec5;">; </span><span style="color: #b0bec5;">Shortcut groups and capture templates</span>
+<span class="linenr"> 9: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates
+<span class="linenr">10: </span>      (append org-capture-templates
+<span class="linenr">11: </span>              '(
+<span class="linenr">12: </span>                (<span style="color: #9ccc65;">"s"</span> <span style="color: #9ccc65;">"School stuff"</span>)
+<span class="linenr">13: </span>                (<span style="color: #9ccc65;">"sr"</span> <span style="color: #9ccc65;">"Reading Assignment"</span>)
+<span class="linenr">14: </span>                )))
+<span class="linenr">15: </span>
+<span class="linenr">16: </span><span style="color: #b0bec5;">; </span><span style="color: #b0bec5;">Template contexts</span>
+<span class="linenr">17: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates-contexts
+<span class="linenr">18: </span>      (append org-capture-templates-contexts
+<span class="linenr">19: </span>              '()))
+</pre>
+</div>
+
+<p>
+A template context limitation consists of parentheses wrapping at least two components, as shown in the diagram below:
+</p>
+
+<p>
+Here is a breakdown of what each of these components means:
+</p>
+
+<ul class="org-ul">
+<li><b>KEY</b>: The shortcut used by a specific capture template or shortcut group.  For our “School stuff” shortcut group, this is “s.”</li>
+<li><b>USUAL-KEY</b>: The shortcut used by a specific capture template.  This component also makes <b>KEY</b> become the new shortcut we want to use instead.  We are going to ignore this option.</li>
+<li><b>CONTEXT</b>: The definition of our context.  This component can be a <i>Lisp</i> function or a <b>SPECIFIER</b> paired with an <b>ARGUMENT</b>.  We are going to ignore the <i>Lisp</i> function possibility.</li>
+<li><b>CONTEXT …</b>: Our context limitation can have multiple contexts specified for the same shortcut.  In this way, you can make a change across a variety of situations without having the build a new context limitation for each of them.</li>
+</ul>
+
+<p>
+There are six available <b>CONTEXT SPECIFIER</b> options available to us:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">in-file</td>
+<td class="org-left">in-buffer</td>
+<td class="org-left">in-mode</td>
+<td class="org-left">not-in-file</td>
+<td class="org-left">not-in-buffer</td>
+<td class="org-left">not-in-mode</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Our context limitation uses the <i>not-in-file</i> <b>CONTEXT SPECIFIER</b>.  Enter the following line inside of our empty quoted list:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr">16: </span><span style="color: #b0bec5;">; </span><span style="color: #b0bec5;">Template contexts</span>
+<span class="linenr">17: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates-contexts
+<span class="linenr">18: </span>      (append org-capture-templates-contexts
+<span class="linenr">19: </span>              '(
+<span class="linenr">20: </span>                (<span style="color: #9ccc65;">"s"</span> ((not-in-file . <span style="color: #9ccc65;">"hobbies.org"</span>)))
+<span class="linenr">21: </span>                )))
+</pre>
+</div>
+
+<blockquote>
+<p>
+<b>NOTE:</b> We wrap the <b>CONTEXT</b> element inside two layers of parentheses.  These parentheses are <i>essential</i>.  You receive an error about incompatible types when you try to open the capture templates menu if you only have one layer.
+</p>
+</blockquote>
+
+<p>
+Create a file called <b>hobbies.org</b> (<code>M-x M-f hobbies.org</code>), and note that our shortcut group is not visible from the capture templates menu when we are within this file.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org">Select a capture template
+<span style="color: #b0bec5;">=========================</span>
+
+-------------------------
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Select a capture template
+<span style="color: #b0bec5;">=========================</span>
+
+[s]...  School stuff...
+-------------------------
+</pre>
+</div>
+
+<p>
+Our hobbies are now unaware of our school-related templates, but our school-related templates are still accessible in other contexts.
+</p>
+</div>
+</div>
+<div id="outline-container-orge753871" class="outline-2">
+<h2 id="orge753871"><span class="section-number-2">6</span> Define Template Type &amp; Target</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+A capture template’s <b>type</b> represents the kind of information that we want to be capturing.  There are five <b>types</b> available to us:
+</p>
+
+<ul class="org-ul">
+<li><b>Entry</b>: A node in an <i>Org</i> document, complete with a headline.  This node becomes a child node if the target is itself an <i>Org</i> node.</li>
+<li><b>Item</b>: A list item.  The template adds this item to the first list present at the target.</li>
+<li><b>Checkitem</b>: A list item with a checkbox.  This item acts identically to the item type above.</li>
+<li><b>Table-line</b>: A new table row.  The template places the row within the first table at the given target.  Various configured properties of the template determine its position in that table.</li>
+<li><b>Plain</b>: Plain text, inserted as-is.</li>
+</ul>
+
+<p>
+The choice of <b>type</b> interacts with the chosen <b>target</b>.  There are nine <b>targets</b> available to us:
+</p>
+
+<ul class="org-ul">
+<li><b>(file “path/to/file”)</b>: A path to a specific file.</li>
+<li><b>(Id “node ID”)</b>: <i>Org</i> entries can be given a unique ID with <code>M-x org-id-get-create</code>.  This option targets a specific ID.</li>
+<li><b>(file+headline “path/to/file” “node headline”)</b>: A path to a specific file, and a unique headline.</li>
+<li><b>(file+olp “path/to/file” “heading” “subheading” “&#x2026;”)</b>: A path to a specific file, and a series of headings and subheadings which uniquely identifies a particular heading.  This option is useful if particular headlines are not unique.</li>
+<li><b>(file+regexp “path/to/file” “regular expression”)</b>: A path to a specific file and a regular expression that matches a particular headline.</li>
+<li><b>(file+olp+datetree “path/to/file” [“heading” “subheading” “&#x2026;”])</b>: A path to a specific file, and a list of headings and subheadings which uniquely identifies a particular heading.  This option creates a date tree inside the targeted headline.  The headline path is optional – omitting it places the date tree at the top level of the file.  If a date tree already exists, this adds the entry to the existing date tree.  The capture template’s properties control the specifics of the date tree configuration.</li>
+<li><b>(file+function “path/to/file” function-name-or-def)</b>: A path to a specific file, and a function that gives the desired location in the file.  The function cannot take arguments.</li>
+<li><b>(clock)</b>: The currently clocked node.  Clocking is powerful and quite useful but beyond the scope of this document.  See the “Further Reading” section at the end of this document to learn more.</li>
+<li><b>(function function-name-or-def)</b>: A function that finds a specific file and the desired location within that file.  The function cannot take arguments.</li>
+</ul>
+
+<p>
+We configure our “Reading Assignment” template as an <b>entry</b> targeted with a <b>file + headline path + date tree</b>.  We are going to add our reading assignments to a file called <b>school_work.org</b> in a folder located at <b>~/org_docs/</b>, which has the following general node structure:
+</p>
+
+<ul class="org-ul">
+<li>Technical Writing
+<ul class="org-ul">
+<li>Assignments
+<ul class="org-ul">
+<li>Date tree</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>
+Expand the “Reading Assignment” capture template to include the correct <b>type</b> and <b>target</b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr"> 7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr"> 8: </span><span style="color: #b0bec5;">; </span><span style="color: #b0bec5;">Shortcut groups and capture templates</span>
+<span class="linenr"> 9: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates
+<span class="linenr">10: </span>      (append org-capture-templates
+<span class="linenr">11: </span>              '(
+<span class="linenr">12: </span>                (<span style="color: #9ccc65;">"s"</span> <span style="color: #9ccc65;">"School stuff"</span>)
+<span class="linenr">13: </span>                (<span style="color: #9ccc65;">"sr"</span> <span style="color: #9ccc65;">"Reading Assignment"</span>
+<span class="linenr">14: </span>                 entry (file+olp+datetree
+<span class="linenr">15: </span>                        <span style="color: #9ccc65;">"~/org_docs/school_work.org"</span>
+<span class="linenr">16: </span>                        <span style="color: #9ccc65;">"Technical Writing"</span>
+<span class="linenr">17: </span>                        <span style="color: #9ccc65;">"Assignments"</span>))
+<span class="linenr">18: </span>                )))
+</pre>
+</div>
+
+<p>
+With the <b>type</b> and <b>target</b> added to our capture template, the template is now functional.  Give it a try.  Remember to create an <i>Org</i> file at the path defined in the capture template, or else you get an error when trying to use the capture template.
+</p>
+
+<p>
+When you select the capture template from the menu, a capture buffer opens, allowing you to add any notes.  By default, this contains the start of a new node and a link to whichever file you were in when you activated the template.  Defining a template string modifies this behavior.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span class="linenr">1: </span><span style="color: #263238;">*****</span><span style="color: #98f5ff;">* </span>
+<span class="linenr">2: </span>       <span style="color: #4dd0e1; text-decoration: underline;"><a href="#">Assignments</a></span>
+</pre>
+</div>
+
+<p>
+Add some text to the buffer and press <code>C-c C-c</code> to save it to your <b>school_work.org</b> file.  You should see your node at the bottom of a date tree inside the “Assignments” sub-node of the “Technical Writing” node of the file.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span class="linenr">1: </span><span style="color: #eceff1; background-color: #455A64; font-size: 130%; font-weight: bold;">* Technical Writing</span>
+<span class="linenr">2: </span><span style="color: #263238;">*</span><span style="color: #e1f5fe; background-color: #35575b; font-size: 120%;">* Assignments</span>
+<span class="linenr">3: </span><span style="color: #263238;">**</span><span style="color: #a5d6a7; font-size: 110%;">* 2020</span>
+<span class="linenr">4: </span><span style="color: #263238;">***</span><span style="color: #ffcc80;">* 2020-02 February</span>
+<span class="linenr">5: </span><span style="color: #263238;">****</span><span style="color: #b3e5fc;">* 2020-02-16 Sunday</span>
+<span class="linenr">6: </span><span style="color: #263238;">*****</span><span style="color: #98f5ff;">* My first capture template</span>
+<span class="linenr">7: </span>       Everything that gets entered into this buffer is saved.
+<span class="linenr">8: </span>       <span style="color: #4dd0e1; text-decoration: underline;"><a href="#orgc60b4e3">Assignments</a></span>
+</pre>
+</div>
+
+<p>
+The template creates the date tree automatically.  By default, it inserts your entry at the current date.  Particular properties of the capture template can modify this behavior.
+</p>
+</div>
+</div>
+<div id="outline-container-org4c90425" class="outline-2">
+<h2 id="org4c90425"><span class="section-number-2">7</span> Apply a Template String to the Capture Template</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Our capture template is functional at this point, but it isn’t exciting.  We still have to type the content of our note by hand.  By defining a template string, we can fill in boilerplate text, and shape the resulting output to be directly useful to our purposes.  Since we intend our capture template to represent a reading assignment for a Technical Writing class, let’s build a template string for this.
+</p>
+
+<p>
+For our template string, we are going to define the following:
+</p>
+
+<ul class="org-ul">
+<li>Add a leading asterisk, marking it as a new node</li>
+<li>Add a <b>TODO</b> keyword to the entry, marking it as an upcoming task</li>
+<li>Title the entry as a reading assignment</li>
+<li>Prompt the user for assigned chapters</li>
+<li>Add a <b>:READING:</b> tag to the entry, marking it as a reading assignment</li>
+<li>Specify a scheduled date &#x2013; when should we start reading?</li>
+<li>Specify a due date &#x2013; by when should the reading be done?</li>
+<li>Automatically add the specified chapters to the body of the task</li>
+</ul>
+
+<p>
+Modify the capture template as follows to accomplish all of this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr"> 7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr"> 8: </span><span style="color: #b0bec5;">; </span><span style="color: #b0bec5;">Shortcut groups and capture templates</span>
+<span class="linenr"> 9: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates
+<span class="linenr">10: </span>      (append org-capture-templates
+<span class="linenr">11: </span>              '(
+<span class="linenr">12: </span>                (<span style="color: #9ccc65;">"s"</span> <span style="color: #9ccc65;">"School stuff"</span>)
+<span class="linenr">13: </span>                (<span style="color: #9ccc65;">"sr"</span> <span style="color: #9ccc65;">"Reading Assignment"</span>
+<span class="linenr">14: </span>                 entry (file+olp+datetree
+<span class="linenr">15: </span>                        <span style="color: #9ccc65;">"~/org_docs/school_work.org"</span>
+<span class="linenr">16: </span>                        <span style="color: #9ccc65;">"Technical Writing"</span>
+<span class="linenr">17: </span>                        <span style="color: #9ccc65;">"Assignments"</span>)
+<span class="linenr">18: </span>                 <span style="color: #9ccc65;">"* TODO Reading Assignment - Ch. %^{Chapters to be read} :READING:</span>
+<span class="linenr">19: </span><span style="color: #9ccc65;">SCHEDULED: %^{Start reading by}T DEADLINE: %^{Finish reading by}T</span>
+<span class="linenr">20: </span><span style="color: #9ccc65;">Chapters to be read: %\\1</span>
+<span class="linenr">21: </span><span style="color: #9ccc65;">"</span>)
+<span class="linenr">22: </span>                )))
+</pre>
+</div>
+
+<p>
+A lot is going on here.  First, we have a single leading asterisk.  We use asterisks to demarcate the depth of nodes in <i>Org</i>.  We do not need to have more than a single asterisk here, even if we expect this to be a subheading (remember that our <b>target</b> puts this at least 6 layers deep, beneath <b>Technical Writing</b>, <b>Assignments</b>, and 3 layers of date tree).  <i>Emacs</i> figures out the right number of asterisks and includes them automatically for us.
+</p>
+
+<p>
+Next, there is a <b>TODO</b> keyword.  Keywords allow you to determine the current state of a task quickly.  By default, <i>Org</i> provides <b>TODO</b> and <b>DONE</b> keywords out of the box.  These can be customized quite extensively, but this is beyond the scope of this document.  See the “Further Reading” section below for more details.
+</p>
+
+<p>
+We then have an escape-code expansion <code>%^{PROMPT}</code> prompting for which chapters we should read.  There are a lot of escape-code expansions available.  See the “Further Reading” section below for a breakdown of the available options.
+</p>
+
+<p>
+After this prompt is the <b>:READING:</b> tag.  Tags allow for easy searching of an Org document, and they also allow for powerful filtering capabilities in the Org agenda.  All of these are beyond the scope of this document.  We include them with hopes of stoking your curiosity.  Check out the “Further Reading” section below for more details.
+</p>
+
+<p>
+We then have a hard line break at this point.  Template strings allow you to do hard line breaks, or to use the escape-code <code>\n</code>.  It is mostly a matter of personal preference.
+</p>
+
+<blockquote>
+<p>
+<b>Note:</b> If you are using hard line breaks, be careful about leading white space on the line.  The capture template includes leading white space in the final output, which can lead to some weird appearances.
+</p>
+</blockquote>
+
+<p>
+Next up are the <b>SCHEDULED</b> and <b>DEADLINE</b> keywords.  These keywords each use the <code>%^{PROMPT}T</code> escape-code expansion, which prompts for a date and time.
+</p>
+
+<p>
+The last line of our template string is plain text followed by the escape-code expansion <code>%\N</code>, which takes the output from the Nth use of the <code>%^{PROMPT}</code> escape-code expansion (N starts at 1, here) and inserts it.  This expansion lets us prompt for information once and insert it into the template at multiple places.
+</p>
+
+<p>
+Once we have answered all of the prompts, we finalize the template with <code>C-c C-c</code>.  The results look like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span class="linenr"> 1: </span><span style="color: #eceff1; background-color: #455A64; font-size: 130%; font-weight: bold;">* Technical Writing</span>
+<span class="linenr"> 2: </span><span style="color: #263238;">*</span><span style="color: #e1f5fe; background-color: #35575b; font-size: 120%;">* Assignments</span>
+<span class="linenr"> 3: </span><span style="color: #263238;">**</span><span style="color: #a5d6a7; font-size: 110%;">* 2020</span>
+<span class="linenr"> 4: </span><span style="color: #263238;">***</span><span style="color: #ffcc80;">* 2020-02 February</span>
+<span class="linenr"> 5: </span><span style="color: #263238;">****</span><span style="color: #b3e5fc;">* 2020-02-16 Sunday</span>
+<span class="linenr"> 6: </span><span style="color: #263238;">*****</span><span style="color: #98f5ff;">* My first capture template</span>
+<span class="linenr"> 7: </span>       Everything that gets entered into this buffer is saved.
+<span class="linenr"> 8: </span>       <span style="color: #4dd0e1; text-decoration: underline;"><a href="#orgc60b4e3">Assignments</a></span>
+<span class="linenr"> 9: </span><span style="color: #263238;">*****</span><span style="color: #98f5ff;">* </span><span style="color: #ff0000;">TODO</span><span style="color: #98f5ff;"> Reading Assignment - Ch. 5, 7-9, 20                </span><span style="color: #98f5ff; font-weight: bold;">:READING:</span>
+<span class="linenr">10: </span>       <span style="color: #b0bec5;">SCHEDULED:</span> <span style="color: #80cbc4; text-decoration: underline;">&lt;2020-02-18 Tue 19:12&gt;</span> <span style="color: #b0bec5;">DEADLINE:</span> <span style="color: #80cbc4; text-decoration: underline;">&lt;2020-02-24 Mon 19:12&gt;</span>
+<span class="linenr">11: </span>       Chapters to be read: 5, 7-9, 20
+</pre>
+</div>
+
+<p>
+To recap, we now have a template that captures an upcoming reading assignment, including scheduling information, appropriately tags it, and marks its current state.  At this point, we can activate the template, fill in our choice of chapters, and pick dates from a calendar.  The rest is all automatic.  At this point, all that is left is some fine-tuning with capture template properties.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd222ce4" class="outline-2">
+<h2 id="orgd222ce4"><span class="section-number-2">8</span> Configure Capture Template Properties</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Capture templates have a handful of properties that can be customized to fine-tune their behavior.  Properties have a default value.  By setting them, you are overriding this default, which means that if you are happy with the default, you can ignore the property entirely.  There are 12 properties available:
+</p>
+
+<ul class="org-ul">
+<li><b>:prepend</b> – By setting this property to <code>t</code> (for true), the template inserts the capture buffer’s content at the beginning of its target.  Nodes become the first child of their parent node; table entries become the first row in the table, and so on.  By default, the template appends content to the end of the target.</li>
+<li><b>:immediate-finish</b> – By setting this property to <code>t</code>, the capture buffer automatically closes and inserts to the target as soon as the user finishes answering prompts.  This behavior is useful if the template’s prompts capture everything that is needed.  By default, the capture buffer waits for the user to add more content manually before they commit to the capture with <code>C-c C-c</code>.</li>
+<li><b>:empty-lines</b> – By setting this property to a non-negative integer value (e.g., 0, 1, or 2), the template inserts a corresponding number of blank lines before and after the capture buffer’s content as part of finalizing.  By default, this inserts 0 lines.</li>
+<li><b>:clock-in</b> – By setting this property to <code>t</code>, finalizing the capture buffer’s content starts the <i>Org</i> clock on this item.  Only one clock can operate at a time.  By default, the clock is left unchanged from its current state.</li>
+<li><b>:clock-keep</b> – By setting this property to <code>t</code>, the <i>Org</i> clock continues to run when presenting the capture buffer.  This behavior means that time tracking continues during the capture process itself.  By default, capturing interrupts the current clock.</li>
+<li><b>:clock-resume</b> – By setting this property to <code>t</code>, the <i>Org</i> clock swaps back to the previous clock if starting the capture process interrupted the clock (such as by using the <b>:clock-in</b> property).  The <b>:clock-keep</b> property takes precedence and overrides this behavior.  By default, if a clock is interrupted by the capture process, it does not resume when finalizing the capture process.</li>
+<li><b>:time-prompt</b> – By setting this property to <code>t</code>, <i>Emacs</i> prompts the user for a date and timestamp.  Any escape-code expansions in need of a default date use this information.  By default, the template uses the current date and time.</li>
+<li><b>:tree-type</b> – This only applies to capture templates using a <b>file+olp+datetree</b> target.  By setting this property to <code>week</code>, the resulting date tree has a year-week-day structure, meaning that a year node has up to 52 children nodes, each with 7 children nodes.  By default, a date tree has a year-month-day structure, meaning that a year node has up to 12 children nodes, each with up to 31 children nodes.</li>
+<li><b>:unnarrowed</b> – By setting this property to <code>t</code>, the resulting view of the targeted buffer remains unchanged.  By default, the target buffer hides surrounding content to emphasize the newly inserted content.</li>
+<li><b>:table-line-pos</b> – This property works in conjunction with the <b>table-line</b> type and doesn’t affect the template’s behavior otherwise.  It specifies the particular location in the target table where the template should insert the captured line.</li>
+<li><b>:kill-buffer</b> – By setting this property to <code>t</code>, if the target buffer wasn’t already open, it is automatically closed after inserting the content when finalizing the capture buffer.  By default, finalizing the capture buffer on a closed target opens that target, and it stays open.</li>
+<li><b>:no-save</b> – By setting this property to <code>t</code>, Emacs does not save the target buffer after finalizing the capture buffer.  By default, inserting content into a buffer with a capture template saves the target buffer.  Be careful!  Using <b>:kill-buffer</b> and <b>:no-save</b> together throws away any captured content if the buffer was not already open when the capture started.</li>
+</ul>
+
+<p>
+To finish off our capture template, we set the <b>:prepend</b>, <b>:immediate-finish</b>, and <b>:tree-type</b> properties to <code>t</code>, <code>t</code>, and <code>week</code>, respectively.  We place these after the <i>template string</i>, inside the capture template.  Our finished capture template should look as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr"> 7: </span><span style="color: #b0bec5;">;;; </span><span style="color: #b0bec5;">Code:</span>
+<span class="linenr"> 8: </span><span style="color: #b0bec5;">; </span><span style="color: #b0bec5;">Shortcut groups and capture templates</span>
+<span class="linenr"> 9: </span>(<span style="color: #fff59d;">setq</span> org-capture-templates
+<span class="linenr">10: </span>      (append org-capture-templates
+<span class="linenr">11: </span>              '(
+<span class="linenr">12: </span>                (<span style="color: #9ccc65;">"s"</span> <span style="color: #9ccc65;">"School stuff"</span>)
+<span class="linenr">13: </span>                (<span style="color: #9ccc65;">"sr"</span> <span style="color: #9ccc65;">"Reading Assignment"</span>
+<span class="linenr">14: </span>                 entry (file+olp+datetree
+<span class="linenr">15: </span>                        <span style="color: #9ccc65;">"~/org_docs/school_work.org"</span>
+<span class="linenr">16: </span>                        <span style="color: #9ccc65;">"Technical Writing"</span>
+<span class="linenr">17: </span>                        <span style="color: #9ccc65;">"Assignments"</span>)
+<span class="linenr">18: </span>                 <span style="color: #9ccc65;">"* TODO Reading Assignment - Ch. %^{Chapters to be read} :READING:</span>
+<span class="linenr">19: </span><span style="color: #9ccc65;">SCHEDULED: %^{Start reading by}T DEADLINE: %^{Finish reading by}T</span>
+<span class="linenr">20: </span><span style="color: #9ccc65;">Chapters to be read: %\\1</span>
+<span class="linenr">21: </span><span style="color: #9ccc65;">"</span> <span style="color: #ff8A65;">:prepend</span> t <span style="color: #ff8A65;">:immediate-finish</span> t <span style="color: #ff8A65;">:tree-type</span> week)
+<span class="linenr">22: </span>                )))
+</pre>
+</div>
+
+<p>
+The resulting entries in our school_work.org file are like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span class="linenr"> 1: </span><span style="color: #eceff1; background-color: #455A64; font-size: 130%; font-weight: bold;">* Technical Writing</span>
+<span class="linenr"> 2: </span><span style="color: #263238;">*</span><span style="color: #e1f5fe; background-color: #35575b; font-size: 120%;">* Assignments</span>
+<span class="linenr"> 3: </span><span style="color: #263238;">**</span><span style="color: #a5d6a7; font-size: 110%;">* 2020</span>
+<span class="linenr"> 4: </span><span style="color: #263238;">***</span><span style="color: #ffcc80;">* 2020-02 February</span>
+<span class="linenr"> 5: </span><span style="color: #263238;">****</span><span style="color: #b3e5fc;">* 2020-02-16 Sunday</span>
+<span class="linenr"> 6: </span><span style="color: #263238;">*****</span><span style="color: #98f5ff;">* My first capture template</span>
+<span class="linenr"> 7: </span>       Everything that gets entered into this buffer is saved.
+<span class="linenr"> 8: </span>       <span style="color: #4dd0e1; text-decoration: underline;"><a href="#orgc60b4e3">Assignments</a></span>
+<span class="linenr"> 9: </span><span style="color: #263238;">*****</span><span style="color: #98f5ff;">* </span><span style="color: #ff0000;">TODO</span><span style="color: #98f5ff;"> Reading Assignment - Ch. 5, 7-9, 20                </span><span style="color: #98f5ff; font-weight: bold;">:READING:</span>
+<span class="linenr">10: </span>       <span style="color: #b0bec5;">SCHEDULED:</span> <span style="color: #80cbc4; text-decoration: underline;">&lt;2020-02-18 Tue 19:12&gt;</span> <span style="color: #b0bec5;">DEADLINE:</span> <span style="color: #80cbc4; text-decoration: underline;">&lt;2020-02-24 Mon 19:12&gt;</span>
+<span class="linenr">11: </span>       Chapters to be read: 5, 7-9, 20
+</pre>
+</div>
+
+<p>
+With this, we have a fully configured capture template, complete with a maintainable organizational structure, and a context limitation.
+</p>
+</div>
+</div>
+<div id="outline-container-org20ce716" class="outline-2">
+<h2 id="org20ce716"><span class="section-number-2">9</span> Quick Reference of Common <i>Emacs</i> Commands</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+The table below describes a variety of Emacs commands which this document uses.  Items wrapped in angle brackets (&lt; and &gt;) are variables that you need to type in.  For example, &lt;file path&gt; should be replaced with an actual path and file name.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-h t</td>
+<td class="org-left">Opens the <i>Emacs</i> tutorial</td>
+</tr>
+
+<tr>
+<td class="org-left">C-n</td>
+<td class="org-left">Moves the cursor down to the next line</td>
+</tr>
+
+<tr>
+<td class="org-left">C-p</td>
+<td class="org-left">Moves the cursor up to the previous line</td>
+</tr>
+
+<tr>
+<td class="org-left">C-a</td>
+<td class="org-left">Moves the cursor to the beginning of the current line</td>
+</tr>
+
+<tr>
+<td class="org-left">C-e</td>
+<td class="org-left">Moves the cursor to the end of the current line</td>
+</tr>
+
+<tr>
+<td class="org-left">C-f</td>
+<td class="org-left">Moves the cursor forward by one character</td>
+</tr>
+
+<tr>
+<td class="org-left">M-f</td>
+<td class="org-left">Moves the cursor forward by one word</td>
+</tr>
+
+<tr>
+<td class="org-left">C-b</td>
+<td class="org-left">Moves the cursor backward by one character</td>
+</tr>
+
+<tr>
+<td class="org-left">M-b</td>
+<td class="org-left">Moves the cursor backward by one word</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x M-f &lt;file path&gt;</td>
+<td class="org-left">Opens the indicated file path.  If it does not exist, it creates a new file.  If an absolute path is not used, it is relative to the current directory.</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x eval-buffer</td>
+<td class="org-left">Runs all of the code in the current buffer.</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x org-capture</td>
+<td class="org-left">Brings up the capture template menu.  This is available in any buffer as long as <i>Org</i> has been initialized.</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x org-id-get-create</td>
+<td class="org-left">When run inside of an <i>Org</i> node, it returns that node’s unique ID.  If the node does not have an ID defined, it creates one and then returns it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc2464af" class="outline-2">
+<h2 id="orgc2464af"><span class="section-number-2">10</span> Further Reading</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Capture templates are a small piece of <i>Org</i>, and <i>Org</i> is a single component of <i>Emacs</i>.  There is a wealth of potential available that expands the available power of your capture templates dramatically.  Here are a few resources to help you explore these possibilities further:
+</p>
+<ul class="org-ul">
+<li><a href="https://www.gnu.org/software/emacs/documentation.html">https://www.gnu.org/software/emacs/documentation.html</a> &#x2013; Documentation for <i>Emacs</i> itself.  Also includes an introduction to writing <i>Emacs Lisp</i>, which allows for near-arbitrary customization of <i>Emacs</i> &amp; <i>Org</i>.</li>
+<li><a href="https://orgmode.org/">https://orgmode.org/</a> &#x2013; Documentation for <i>Org</i> in particular.  This site covers capture templates, along with a great deal more information about various Org features, including clocking, and the agenda view.
+<ul class="org-ul">
+<li><a href="https://orgmode.org/manual/Template-elements.html#Template-elements">https://orgmode.org/manual/Template-elements.html#Template-elements</a> &#x2013; Details on capture template types and targets.</li>
+<li><a href="https://orgmode.org/manual/Template-expansion.html#Template-expansion">https://orgmode.org/manual/Template-expansion.html#Template-expansion</a> &#x2013; Details on the available escape-code expansions that are available.</li>
+<li><a href="https://orgmode.org/manual/TODO-Items.html#TODO-Items">https://orgmode.org/manual/TODO-Items.html#TODO-Items</a> &#x2013; Details on working with <b>TODO</b> items.</li>
+<li><a href="https://orgmode.org/manual/Tags.html#Tags">https://orgmode.org/manual/Tags.html#Tags</a> &#x2013; Details on working with tags.</li>
+</ul></li>
+<li><a href="https://sachachua.com/blog/category/geek/emacs/">https://sachachua.com/blog/category/geek/emacs/</a> &#x2013; The personal blog of Sacha Chua, with a wealth of <i>Emacs</i>-related tutorials and guides.  An excellent resource for learning how to make use of <i>Org</i> mode.</li>
+<li><a href="https://mitpress.mit.edu/books/little-schemer-fourth-edition">https://mitpress.mit.edu/books/little-schemer-fourth-edition</a> &#x2013; A book called “The Little Schemer.”  It is an introduction to a programming language called <i>Scheme</i>, which is close enough to <i>Lisp</i> that it serves as an excellent introduction to <i>Lisp</i> as well.  It teaches more than syntax and language constructs – it helps you develop a sense of how to leverage <i>Lisp’s</i> strengths effectively to solve problems.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Chris Shepard</p>
+<p class="date">Created: 2020-02-29 Sat 02:01</p>
+</div>
+</body>
+</html>

@@ -112,6 +112,10 @@ def stats():
 def english_2():
     return render_template("english2.html")
 
+@main.route("english_3")
+def english_3():
+    return render_template("english3.html")
+
 @main.route("anthropology")
 def anthropology():
     return render_template("anthropology.html")
