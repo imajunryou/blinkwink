@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-29 Sat 02:01 -->
+<!-- 2020-02-29 Sat 12:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Creating Capture Templates</title>
@@ -263,21 +263,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org87c7e93">1. Overview</a></li>
-<li><a href="#orge5c3ca5">2. Prerequisites</a></li>
-<li><a href="#orgf03870a">3. Configure Template Storage</a></li>
-<li><a href="#org2f27b5b">4. Define Template Shortcut Groups</a></li>
-<li><a href="#org2c62e03">5. Define Template Context Limitations</a></li>
-<li><a href="#orge753871">6. Define Template Type &amp; Target</a></li>
-<li><a href="#org4c90425">7. Apply a Template String to the Capture Template</a></li>
-<li><a href="#orgd222ce4">8. Configure Capture Template Properties</a></li>
-<li><a href="#org20ce716">9. Quick Reference of Common <i>Emacs</i> Commands</a></li>
-<li><a href="#orgc2464af">10. Further Reading</a></li>
+<li><a href="#orgb8ceb1b">1. Overview</a></li>
+<li><a href="#orga3e7ae8">2. Prerequisites</a></li>
+<li><a href="#org857d186">3. Configure Template Storage</a></li>
+<li><a href="#org3c7163a">4. Define Template Shortcut Groups</a></li>
+<li><a href="#org0ec27b4">5. Define Template Context Limitations</a></li>
+<li><a href="#orgdd71b9d">6. Define Template Type &amp; Target</a></li>
+<li><a href="#orge53fcd1">7. Apply a Template String to the Capture Template</a></li>
+<li><a href="#org78733b8">8. Configure Capture Template Properties</a></li>
+<li><a href="#orgb4d7f28">9. Quick Reference of Common <i>Emacs</i> Commands</a></li>
+<li><a href="#orgb66ab7c">10. Further Reading</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org87c7e93" class="outline-2">
-<h2 id="org87c7e93"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgb8ceb1b" class="outline-2">
+<h2 id="orgb8ceb1b"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Capture templates allow you to easily record notes on the fly, with only minor interruptions to your workflow.  They are versatile and straightforward to set up.  Here, we build a capture template and implement some organizational tweaks along the way to illustrate some of the available possibilities for managing multiple capture templates.
@@ -288,8 +288,8 @@ There are many ways to implement and organize capture templates.  Once comfortab
 </p>
 </div>
 </div>
-<div id="outline-container-orge5c3ca5" class="outline-2">
-<h2 id="orge5c3ca5"><span class="section-number-2">2</span> Prerequisites</h2>
+<div id="outline-container-orga3e7ae8" class="outline-2">
+<h2 id="orga3e7ae8"><span class="section-number-2">2</span> Prerequisites</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Before we begin, make sure that you have the following prepared:
@@ -339,8 +339,8 @@ We write this document from the perspective of a <i>Linux</i> file system, which
 </p>
 </div>
 </div>
-<div id="outline-container-orgf03870a" class="outline-2">
-<h2 id="orgf03870a"><span class="section-number-2">3</span> Configure Template Storage</h2>
+<div id="outline-container-org857d186" class="outline-2">
+<h2 id="org857d186"><span class="section-number-2">3</span> Configure Template Storage</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 When you are first getting started with capture templates, you may find it convenient to insert them directly into your initialization file.  Storing your capture templates inside your initialization file works in the short-term, but as your collection grows, it is challenging to keep them organized.
@@ -353,6 +353,12 @@ We implement a two-layer approach to our capture template storage.  The configur
 <p>
 This configuration provides us with the beginnings of a tree-like organizational method:
 </p>
+
+
+<div class="figure">
+<p><img src="../images/organization-tree.png" alt="organization-tree.png" />
+</p>
+</div>
 
 <p>
 To begin, select a location for storing the template index file, and create the file there.  For example, we create a file <b>template_index.el</b> and place it in <b>~/capture_templates/</b>.
@@ -433,8 +439,8 @@ We have now created a template index file to organize different groups of captur
 </p>
 </div>
 </div>
-<div id="outline-container-org2f27b5b" class="outline-2">
-<h2 id="org2f27b5b"><span class="section-number-2">4</span> Define Template Shortcut Groups</h2>
+<div id="outline-container-org3c7163a" class="outline-2">
+<h2 id="org3c7163a"><span class="section-number-2">4</span> Define Template Shortcut Groups</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 We choose capture templates by a unique shortcut key defined in the definition of each template.  Shortcut groups provide a means of grouping one or more templates under a single shortcut key.  This grouping allows for a higher number of capture templates, while also helping to keep them organized.
@@ -537,8 +543,8 @@ s [r]...  Reading Assignment...
 </div>
 </div>
 </div>
-<div id="outline-container-org2c62e03" class="outline-2">
-<h2 id="org2c62e03"><span class="section-number-2">5</span> Define Template Context Limitations</h2>
+<div id="outline-container-org0ec27b4" class="outline-2">
+<h2 id="org0ec27b4"><span class="section-number-2">5</span> Define Template Context Limitations</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Capture templates can be constrained to particular contexts, meaning that you can limit the conditions under which they show up in the capture template menu.  We implement such a limitation for our “School stuff” shortcut group, restricting it to be unavailable when we are in a file called <b>hobbies.org</b>.
@@ -582,6 +588,12 @@ We keep our contexts defined alongside their corresponding capture templates.  I
 <p>
 A template context limitation consists of parentheses wrapping at least two components, as shown in the diagram below:
 </p>
+
+
+<div class="figure">
+<p><img src="../images/context.png" alt="context.png" />
+</p>
+</div>
 
 <p>
 Here is a breakdown of what each of these components means:
@@ -672,8 +684,8 @@ Our hobbies are now unaware of our school-related templates, but our school-rela
 </p>
 </div>
 </div>
-<div id="outline-container-orge753871" class="outline-2">
-<h2 id="orge753871"><span class="section-number-2">6</span> Define Template Type &amp; Target</h2>
+<div id="outline-container-orgdd71b9d" class="outline-2">
+<h2 id="orgdd71b9d"><span class="section-number-2">6</span> Define Template Type &amp; Target</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 A capture template’s <b>type</b> represents the kind of information that we want to be capturing.  There are five <b>types</b> available to us:
@@ -772,8 +784,8 @@ The template creates the date tree automatically.  By default, it inserts your e
 </p>
 </div>
 </div>
-<div id="outline-container-org4c90425" class="outline-2">
-<h2 id="org4c90425"><span class="section-number-2">7</span> Apply a Template String to the Capture Template</h2>
+<div id="outline-container-orge53fcd1" class="outline-2">
+<h2 id="orge53fcd1"><span class="section-number-2">7</span> Apply a Template String to the Capture Template</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Our capture template is functional at this point, but it isn’t exciting.  We still have to type the content of our note by hand.  By defining a template string, we can fill in boilerplate text, and shape the resulting output to be directly useful to our purposes.  Since we intend our capture template to represent a reading assignment for a Technical Writing class, let’s build a template string for this.
@@ -876,8 +888,8 @@ To recap, we now have a template that captures an upcoming reading assignment, i
 </p>
 </div>
 </div>
-<div id="outline-container-orgd222ce4" class="outline-2">
-<h2 id="orgd222ce4"><span class="section-number-2">8</span> Configure Capture Template Properties</h2>
+<div id="outline-container-org78733b8" class="outline-2">
+<h2 id="org78733b8"><span class="section-number-2">8</span> Configure Capture Template Properties</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Capture templates have a handful of properties that can be customized to fine-tune their behavior.  Properties have a default value.  By setting them, you are overriding this default, which means that if you are happy with the default, you can ignore the property entirely.  There are 12 properties available:
@@ -946,8 +958,8 @@ With this, we have a fully configured capture template, complete with a maintain
 </p>
 </div>
 </div>
-<div id="outline-container-org20ce716" class="outline-2">
-<h2 id="org20ce716"><span class="section-number-2">9</span> Quick Reference of Common <i>Emacs</i> Commands</h2>
+<div id="outline-container-orgb4d7f28" class="outline-2">
+<h2 id="orgb4d7f28"><span class="section-number-2">9</span> Quick Reference of Common <i>Emacs</i> Commands</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 The table below describes a variety of Emacs commands which this document uses.  Items wrapped in angle brackets (&lt; and &gt;) are variables that you need to type in.  For example, &lt;file path&gt; should be replaced with an actual path and file name.
@@ -1037,8 +1049,8 @@ The table below describes a variety of Emacs commands which this document uses. 
 </div>
 </div>
 
-<div id="outline-container-orgc2464af" class="outline-2">
-<h2 id="orgc2464af"><span class="section-number-2">10</span> Further Reading</h2>
+<div id="outline-container-orgb66ab7c" class="outline-2">
+<h2 id="orgb66ab7c"><span class="section-number-2">10</span> Further Reading</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Capture templates are a small piece of <i>Org</i>, and <i>Org</i> is a single component of <i>Emacs</i>.  There is a wealth of potential available that expands the available power of your capture templates dramatically.  Here are a few resources to help you explore these possibilities further:
@@ -1060,7 +1072,7 @@ Capture templates are a small piece of <i>Org</i>, and <i>Org</i> is a single co
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Chris Shepard</p>
-<p class="date">Created: 2020-02-29 Sat 02:01</p>
+<p class="date">Created: 2020-02-29 Sat 12:03</p>
 </div>
 </body>
 </html>
