@@ -48,17 +48,15 @@ def kind_of_categorical():
     return statement_type(cat1, cat2)
 
 
-QUESTIONS = {
-    "What kind of categorical statement is this?": kind_of_categorical
-}
-
-
 @main.route("/")
 def index():
     return render_template("index.html")
 
 
 def build_new_question():
+    QUESTIONS = {
+        "What kind of categorical statement is this?": kind_of_categorical
+    }
     question = sample(list(QUESTIONS.keys()), 1)[0]
     statement = QUESTIONS[question]()
     return question, statement
