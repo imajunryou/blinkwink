@@ -9,6 +9,8 @@ def create_app(config_name):
 
     # Imports the main page, and error pages
     from .main import main as main_blueprint
+    from .bookmark import bookmark as bookmark_blueprint
     app.register_blueprint(main_blueprint, url_prefix="/")
+    app.register_blueprint(bookmark_blueprint, url_prefix="/bookmark")
 
     return app
